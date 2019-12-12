@@ -10,7 +10,12 @@ class HomeController @Inject() (
 )
   extends AbstractController(cc) {
 
+    val mbs = 300
+    val size = 1024 * 1024 * mbs
+
+    val array = scala.util.Random.nextBytes(size)
+
   def hi = Action {
-    Ok("hello")
+    Ok(s"Stored an array of ${mbs}MB: ${array(size - 1)}")
   }
 }
